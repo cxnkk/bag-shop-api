@@ -20,4 +20,5 @@ CREATE TABLE
         id SERIAL PRIMARY KEY,
         users_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE,
         bags_id INT NOT NULL REFERENCES bags (id) ON DELETE CASCADE,
+        UNIQUE (user_id, bags_id)
     )
