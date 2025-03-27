@@ -14,3 +14,10 @@ CREATE TABLE
         size TEXT NOT NULL,
         price INT NOT NULL
     );
+
+CREATE TABLE
+    users_favorites (
+        id SERIAL PRIMARY KEY,
+        users_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE,
+        bags_id INT NOT NULL REFERENCES bags (id) ON DELETE CASCADE,
+    )
