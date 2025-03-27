@@ -17,6 +17,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "postgres": "^3.4.5"
   }
 }
