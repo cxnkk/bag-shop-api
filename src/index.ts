@@ -9,8 +9,32 @@ const port = 3000;
 app.use(express.json());
 
 app.get("/bagshop", async (req, res) => {
-  const bags = await sql`SELECT * FROM bags`;
-  res.send(bags);
+  const users = await sql`
+  SELECT
+   * 
+  FROM
+   users`;
+  res.send(users);
+});
+
+app.post("/bagshop/login", async (req: any, res: any) => {
+  const { username, password } = req.body;
+
+  const login = await sql`
+  SELECT
+    username,
+    password
+  FROM
+    users
+  WHERE
+    username = ${username}
+    AND password = ${password} `;
+
+  if (login.length === 0) {
+    return res.sendStatus(404);
+  }
+
+  res.sendStatus(200);
 });
 
 app.listen(port, () => {
